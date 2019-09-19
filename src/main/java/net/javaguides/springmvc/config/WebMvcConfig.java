@@ -15,9 +15,6 @@ import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"net.javaguides.springmvc.controller"})
@@ -40,17 +37,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public ContentNegotiatingViewResolver contentNegotiatingViewResolver(ContentNegotiationManager manager) {
         ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
         resolver.setContentNegotiationManager(manager);
-//
-////        // Define all possible view resolvers
-        List<ViewResolver> resolvers = new ArrayList<>();
-////
-        resolvers.add(new JsonViewResolver());
-////        resolvers.add(jsonViewResolver());
-////        resolvers.add(jspViewResolver());
-////        resolvers.add(pdfViewResolver());
-////        resolvers.add(excelViewResolver());
-////
-//        resolver.setViewResolvers(resolvers);
         resolver.setOrder(1);
         return resolver;
     }
