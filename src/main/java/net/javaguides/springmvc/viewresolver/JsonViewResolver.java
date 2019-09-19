@@ -1,4 +1,4 @@
-package net.javaguides.springmvc;
+package net.javaguides.springmvc.viewresolver;
 
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
