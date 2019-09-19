@@ -1,12 +1,10 @@
 package net.javaguides.springmvc.config;
 
-import net.javaguides.springmvc.viewresolver.JsonViewResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.web.accept.ContentNegotiationManager;
-import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -14,6 +12,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
+
+import java.util.Arrays;
 
 @Configuration
 @EnableWebMvc
@@ -25,11 +26,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         configurer.favorPathExtension(true).favorParameter(false).ignoreAcceptHeader(true).useJaf(false).defaultContentType(MediaType.ALL);
     }
 
-    @Bean
-    public ViewResolver jsonViewResolver() {
-        return new JsonViewResolver();
-    }
-
     /*
      * Configure ContentNegotiatingViewResolver
      */
@@ -37,6 +33,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public ContentNegotiatingViewResolver contentNegotiatingViewResolver(ContentNegotiationManager manager) {
         ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
         resolver.setContentNegotiationManager(manager);
+        resolver.setDefaultViews(Arrays.asList(new MappingJackson2JsonView()));
         resolver.setOrder(1);
         return resolver;
     }
