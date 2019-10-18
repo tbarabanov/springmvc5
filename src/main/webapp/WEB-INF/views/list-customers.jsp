@@ -1,13 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>javaguides.net</title>
-    <link href="<c:url value="/resources/css/bootstrap.min.css" />"
-          rel="stylesheet">
+    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
     <%@ page isELIgnored="false" %>
     <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
     <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
@@ -19,9 +17,9 @@
             MySQL Example - Customer Management</h3>
         <hr/>
 
-        <input type="button" value="Add Customer"
-               onclick="window.location.href='showForm'; return false;"
-               class="btn btn-primary"/> <br/>
+        <input class="btn btn-primary" type="button" value="Add Customer"
+               onclick="window.location.href='showForm'; return false;"/>
+        <br/>
         <br/>
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -53,23 +51,19 @@
                             <td>${tempCustomer.firstName}</td>
                             <td>${tempCustomer.lastName}</td>
                             <td>${tempCustomer.email}</td>
-
                             <td>
-                                <!-- display the update link --> <a href="${updateLink}">Update</a>
-                                | <a href="${deleteLink}"
-                                     onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+                                <!-- display the update link -->
+                                <a href="${updateLink}">Update</a> | <a href="${deleteLink}"
+                                     onclick="if (!(confirm('Are you sure you want to delete this customer?')))
+                                         return false">Delete</a>
                             </td>
-
                         </tr>
-
                     </c:forEach>
 
                 </table>
-
             </div>
         </div>
     </div>
-
 </div>
 <div class="footer">
     <p>Footer</p>
@@ -77,12 +71,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
