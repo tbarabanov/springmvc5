@@ -28,10 +28,10 @@ public class CustomerController {
     }
 
     // Save
-    //return 201 instead of 200
+    // returns 201 instead of 200
     @ResponseStatus(HttpStatus.CREATED)
-    @ResponseBody
     @PostMapping("/customers")
+    @ResponseBody
     public Customer newCustomer(@RequestBody Customer theCustomer) {
         return customerService.saveCustomer(theCustomer);
     }
